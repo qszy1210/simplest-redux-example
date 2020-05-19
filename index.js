@@ -2,9 +2,71 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
+// React component
+class Test extends Component {
+
+
+  componentWillReceiveProps(nextProps) {
+    console.log('receive prop')
+  }
+  componentDidMount() {
+    console.log("did mount")
+  }
+
+  componentWillMount() {
+    console.log("will mount")
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('should update')
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    console.log('will update')
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('did update')
+  }
+
+
+  render() {
+    const { value, onIncreaseClick } = this.props
+    return (
+      <div>
+        <span>{value}</span>
+        <button onClick={onIncreaseClick}>Increase</button>
+      </div>
+    )
+  }
+}
 
 // React component
 class Counter extends Component {
+
+
+  componentWillReceiveProps(nextProps) {
+    console.log('receive prop')
+  }
+  componentDidMount() {
+    console.log("did mount")
+  }
+
+  componentWillMount() {
+    console.log("will mount")
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('should update')
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    console.log('will update')
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('did update')
+  }
+
+
   render() {
     const { value, onIncreaseClick } = this.props
     return (
@@ -60,7 +122,7 @@ const App = connect(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Test />
   </Provider>,
   document.getElementById('root')
 )
